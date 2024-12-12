@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--Written by gurraoptimus for Gurraoptimus Development 2021-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="fb:app_id" content="" />
+    <meta property="og:url" content="https://www.gurraoptimus.se" />
+    <meta property="og:type" content="gurraoptimus.se" />
+    <meta property="og:title" content="{Gurraoptimus Development}" />
+    <meta property="og:description" content="Copyright © Gurraoptimus Development 2024. All rights reserved." />
+    <meta property="og:image" content="https://www.gurraoptimus.se/img/github.jpg" />
+    <meta name="description" content="gurraoptimus">
+    <link rel="shortcut icon" href="https://gurraoptimus.se/icon/favicon.ico" type="image/x-icon">
+    <title>Login System</title>
+    <style>
+        /* Importing fonts for styling */
+        @import url('https://fonts.googleapis.com/css?family=Exo:100,200,400');
+        @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300');
+
+        /* General styling for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll; /* Allows vertical scrolling */
+            background-image: url('https://gurraoptimus.se/img/github.jpg'); /* Background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            -webkit-filter: blur(0px); /* Applies a blur filter to the background */
+            font-family: 'Exo', sans-serif; /* Sets the font family */
+            color: #fff; /* Default text color */
+            min-height: 100vh;
+            display: flex; /* Flexbox layout for content alignment */
+            flex-direction: column; /* Stacks child elements vertically */
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center; /* Centers the text horizontally */
+            margin-top: 50px; /* Adds spacing at the top */
+            color: #fff; /* White text color */
+            font-family: 'Exo', sans-serif;
+            font-size: 24px; /* Font size for the header text */
+        }
+
+        /* Highlighting a specific word in the header */
+        .header span {
+            color: #F29E20; /* Orange color for emphasis */
+        }
+
+        /* Styles for the login form container */
+        .login {
+            position: relative; /* Allows positioning adjustments */
+            top: 50px; /* Adds space from the top */
+            margin: auto; /* Centers the container horizontally */
+            width: 300px; /* Fixed width */
+            padding: 20px; /* Adds padding inside the container */
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            border-radius: 10px; /* Rounds the corners */
+            color: #fff; /* Text color */
+        }
+
+        /* Styles for the input fields */
+        .login input[type="text"],
+        .login input[type="password"] {
+            width: 100%; /* Full width */
+            height: 30px; /* Fixed height */
+            background: transparent; /* Transparent background */
+            border: 1px solid rgba(255, 255, 255, 0.6); /* Semi-transparent white border */
+            border-radius: 5px; /* Rounds the corners */
+            color: #fff; /* Text color */
+            font-family: 'Exo'; /* Font family */
+            font-size: 16px; /* Font size */
+            padding: 5px; /* Inner padding */
+            margin-bottom: 10px; /* Spacing between inputs */
+        }
+
+        /* Styles for the login button */
+        .login input[type="button"] {
+            width: 100%; /* Full width */
+            height: 35px; /* Fixed height */
+            background: #fff; /* White background */
+            border: 1px solid #fff; /* White border */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 5px; /* Rounds the corners */
+            color: #000; /* Black text color */
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            margin-top: 10px; /* Adds spacing above the button */
+        }
+
+        /* Hover effect for the button */
+        .login input[type="button"]:hover {
+            opacity: 0.8; /* Slightly transparent on hover */
+        }
+
+        /* Removes focus outline for better appearance */
+        .login input[type="button"]:focus {
+            outline: none;
+        }
+
+        /* Placeholder text styling */
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center; /* Centers the text horizontally */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            color: #fff; /* White text color */
+            padding: 10px 0; /* Vertical padding */
+            margin-top: auto; /* Pushes the footer to the bottom of the page */
+        }
+
+        /* Footer text styles */
+        .copyright {
+            margin: 0; /* Removes default margin */
+            font-family: 'Exo', sans-serif;
+            font-size: 14px; /* Small font size */
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <!-- Header Section -->
+    <div class="header">
+        Login <span>System</span>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login">
+        <form name="login" onsubmit="return check(this)">
+            <input type="text" placeholder="Username" name="userid" aria-label="Username"><br>
+            <input type="password" placeholder="Password" name="pswrd" aria-label="Password"><br>
+            <input type="button" onclick="check(this.form)" value="Login">
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p class="copyright">
+            Copyright &copy; Gurraoptimus Development <span id="curYr"></span>. All rights reserved&mldr;
+        </p>
+    </footer>
+
+    <script>
+        // Update the year in the footer
+        var date = new Date(); // Get the current date
+        var year = date.getFullYear(); // Extract the current year
+        document.getElementById("curYr").textContent = year; // Updates footer year
+
+        // Dynamically update the year in the <meta> tag
+        var metaTag = document.querySelector('meta[property="og:description"]');
+        if (metaTag) {
+            metaTag.setAttribute(
+                "content",
+                `Copyright © Gurraoptimus Development ${year}. All rights reserved.`
+            ); // Update the 'content' attribute dynamically
+        }
+    </script>
+</body>
+</html>
