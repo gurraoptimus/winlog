@@ -122,7 +122,7 @@
         }
     </style>
 </head>
-<body oncontextmenu="return true">
+<body oncontextmenu="return false">
     <!-- Header Section -->
     <div class="header">
         Login <span>System</span>
@@ -134,6 +134,25 @@
             <input type="text" placeholder="Username" name="userid" aria-label="Username"><br>
             <input type="password" placeholder="Password" name="pswrd" aria-label="Password"><br>
             <input type="button" onclick="check(this.form)" value="Login">
+        
+        
+         <!-- login Section -->
+   <script language="javascript">
+
+    function check(form){
+        if(form.userid.value == "user" && form.pswrd.value == "password")
+    {window.open("https://gurraoptimus.se/")
+
+        }
+    else
+    {
+        alert("The Username and Password you entered don't match")
+        }
+    }
+
+   </script>
+
+        
         </form>
     </div>
 
